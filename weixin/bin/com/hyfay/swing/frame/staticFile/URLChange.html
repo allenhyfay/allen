@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <!-- basic styles -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css"/>
+
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css"/>
+    <![endif]-->
+
+    <!-- page specific plugin styles -->
+
+    <!-- fonts -->
+
+    <!-- ace styles -->
+
+    <link rel="stylesheet" href="assets/css/ace.min.css"/>
+    <link rel="stylesheet" href="assets/css/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="assets/css/ace-skins.min.css"/>
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="assets/css/ace-ie.min.css"/>
+    <![endif]-->
+
+    <!-- inline styles related to this page -->
+
+    <!-- ace settings handler -->
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <style>
+        .query_hint {
+            border: 5px solid #127386;
+            width: 250px;
+            height: 50px;
+            line-height: 40px;
+            padding: 0 20px;
+            position: fixed;
+            left: 50%;
+            margin-left: -140px;
+            top: 50%;
+            margin-top: -40px;
+            font-size: 15px;
+            color: #333;
+            font-weight: bold;
+            text-align: center;
+            background-color: #fff;
+            z-index: 2;
+            display: none;
+        }
+
+        #cover {
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("../imgs/bk.png");
+            display: none;
+        }
+    </style>
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('navbar', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <div class="navbar-container" id="navbar-container">
+        <div class="navbar-header pull-left">
+            <a href="#" class="navbar-brand">
+                <small>
+                    <i class="icon-leaf"></i>
+                    微信URL转换工具(V1.0)
+                </small>
+            </a><!-- /.brand -->
+        </div><!-- /.navbar-header -->
+
+        <div class="navbar-header pull-right" role="navigation">
+        </div><!-- /.navbar-header -->
+    </div><!-- /.container -->
+</div>
+
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+
+        <div class="sidebar" id="sidebar">
+            <script type="text/javascript">
+                try {
+                    ace.settings.check('sidebar', 'fixed')
+                } catch (e) {
+                }
+            </script>
+
+            <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+
+            </div><!-- #sidebar-shortcuts -->
+
+            <ul class="nav nav-list">
+                <li class="active">
+                    <a>
+                        <i class="icon-dashboard"></i>
+                        <span class="menu-text"> 控制台 </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="SysSet.html"
+                       class="dropdown-toggle">
+                        <i class="icon-edit"></i>
+                        <span class="menu-text"> 参数设置 </span>
+
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="URLChange.html" class="dropdown-toggle">
+                        <i class="icon-edit"></i>
+                        <span class="menu-text"> URL转换 </span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+
+                </li>
+
+
+            </ul><!-- /.nav-list -->
+
+        </div>
+
+        <div class="main-content" style="min-height:530px">
+            <div class="breadcrumbs" id="breadcrumbs">
+
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#">URL转换</a>
+                    </li>
+                </ul><!-- .breadcrumb -->
+
+            </div>
+
+
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="widget-box">
+                            <div class="widget-header">
+                                <h4>文件选择</h4>
+                            </div>
+
+                            <div class="widget-body">
+                                <div class="widget-main no-padding">
+                                    <div class="ace-file-input"><input
+                                            type="file"
+                                            id="id-input-file-2"
+                                            onchange="change(this)"><label
+                                            class="file-label selected"
+                                            data-title="选择文件"><span
+                                            class="file-name" data-title=""><i
+                                            class="icon-file"></i></span></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.row -->
+
+            <div class="col-xs-12">
+
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="widget-box" style="border: none">
+                            <div class="form-actions center"
+                                 style="padding: 0px">
+                                <button type="button"
+                                        class="btn btn-sm btn-success"
+                                        onclick="onsub()">
+                                    读取文件并开始转换
+                                    <i class="icon-arrow-right icon-on-right bigger-110"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.row -->
+
+            <div class="col-xs-12">
+
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="widget-box">
+                            <div class="widget-header">
+                                <h4>转换结果</h4>
+                            </div>
+                            <div class="widget-body">
+                                <p id="result"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.row -->
+
+        </div><!-- /.main-content -->
+
+
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-container -->
+<div id="cover"></div>
+<div id="query_hint" class="query_hint">
+    <img src="../imgs/wait.gif"/>正在转换，请稍等...
+</div>
+<!-- basic scripts -->
+
+<!--[if !IE]> -->
+
+<script src="assets/js/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>" + "<" + "script>");
+</script>
+
+<!-- <![endif]-->
+
+<!--[if IE]>
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>" + "<" + "script>");
+</script>
+<![endif]-->
+
+
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/typeahead-bs2.min.js"></script>
+
+<!-- page specific plugin scripts -->
+
+<!--[if lte IE 8]>
+<script src="assets/js/excanvas.min.js"></script>
+<![endif]-->
+
+<script src="assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+<script src="assets/js/jquery.slimscroll.min.js"></script>
+<script src="assets/js/jquery.easy-pie-chart.min.js"></script>
+<script src="assets/js/jquery.sparkline.min.js"></script>
+<script src="assets/js/flot/jquery.flot.min.js"></script>
+<script src="assets/js/flot/jquery.flot.pie.min.js"></script>
+<script src="assets/js/flot/jquery.flot.resize.min.js"></script>
+
+<!-- ace scripts -->
+
+<script src="assets/js/ace-elements.min.js"></script>
+
+<script type="text/javascript">
+    var mySocket;
+    function onsub() {
+        var p = $("#id-input-file-2").val();
+        if (p == null || p == "") {
+            alert("请选择xls文件");
+            return;
+        }
+        onsubm(p);
+    }
+
+    function onsubm(file) {
+        ajaxFunction(file);
+    }
+
+
+    function ajaxFunction(file) {
+        var xmlHttp;
+
+        try {
+            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        catch (e) {
+            console.log(e);
+        }
+        ;
+        xmlHttp.open("GET", "http://localhost:9999/e?type=URLChange&file=" + file);
+        xmlHttp.onreadystatechange = function () {
+            if (xmlHttp.readyState == 4) {
+                var query_hint = document.getElementById("query_hint");
+                query_hint.style.display = "none";
+                var cover = document.getElementById("cover");
+                cover.style.display = "none";
+                var message = xmlHttp.responseText;
+                if (message.indexOf("success") > -1) {
+                    $("#result").html(message);
+                } else {
+                    $("#result").html(message);
+                }
+            } else {
+                var query_hint = document.getElementById("query_hint");
+                query_hint.style.display = "block";
+                var cover = document.getElementById("cover");
+                cover.style.display = "block";
+            }
+        };
+        xmlHttp.send(null);
+    }
+
+    function change(obj) {
+        var st = $(obj).val();
+        $(".file-name").attr("data-title", st);
+    }
+
+    function openFile(fipath){
+        /*var opso= new ActiveXObject("Scripting.FileSystemObject");
+        opso.OpenTextFile("D:\\workspace", 1);*/
+        window.open('file://D:\\workspace\\');
+    }
+</script>
+
+</body>
+</html>
+

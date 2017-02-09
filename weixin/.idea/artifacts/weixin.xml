@@ -1,0 +1,25 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="weixin">
+    <output-path>$PROJECT_DIR$/classes/artifacts/weixin</output-path>
+    <root id="archive" name="weixin.jar">
+      <element id="module-output" name="weixin" />
+      <element id="library" level="module" name="commons-beanutils-1.7.0.jar" module-name="weixin" />
+      <element id="library" level="module" name="DJNativeSwing.jar" module-name="weixin" />
+      <element id="library" level="module" name="commons-lang-2.6.jar" module-name="weixin" />
+      <element id="library" level="module" name="commons-collections-3.1.jar" module-name="weixin" />
+      <element id="library" level="module" name="commons-httpclient-3.1.jar" module-name="weixin" />
+      <element id="library" level="module" name="commons-codec-1.9.jar" module-name="weixin" />
+      <element id="library" level="module" name="commons-logging-1.2.jar" module-name="weixin" />
+      <element id="library" level="module" name="DJNativeSwing-SWT.jar" module-name="weixin" />
+      <element id="library" level="module" name="ezmorph-1.0.6.jar" module-name="weixin" />
+      <element id="library" level="module" name="fluent-hc-4.5.2.jar" module-name="weixin" />
+      <element id="library" level="module" name="jna-4.1.0.jar" module-name="weixin" />
+      <element id="library" level="module" name="jna-platform-4.1.0.jar" module-name="weixin" />
+      <element id="library" level="module" name="json-lib-2.4-jdk15.jar" module-name="weixin" />
+      <element id="library" level="module" name="jxl-2.6.12.jar" module-name="weixin" />
+      <element id="library" level="module" name="org.eclipse.swt.win32.win32.x86_64_3.102.1.v20130827-2048.jar" module-name="weixin" />
+      <element id="library" level="module" name="rhino-1.7R3.jar" module-name="weixin" />
+      <element id="library" level="module" name="spring-core-4.1.2.RELEASE.jar" module-name="weixin" />
+    </root>
+  </artifact>
+</component>
